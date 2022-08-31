@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: hashicorp/terraform:1.2.8
-      volumes:
-        - ${{ github.workspace }}:/repo
+      #volumes:
+      #  - ${{ github.workspace }}:/repo
     steps:
       - name: find
-        run: find /
+        run: pwd && find .
       - name: Lint
         run: terraform fmt -check -recursive /repo
 

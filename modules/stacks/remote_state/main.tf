@@ -4,7 +4,7 @@ resource "aws_s3_bucket" "bucket" {
 
 resource "aws_s3_bucket_acl" "acl" {
   bucket = aws_s3_bucket.bucket.id
-  acl = "private"
+  acl    = "private"
 }
 
 resource "aws_s3_bucket_versioning" "versioning" {
@@ -15,11 +15,11 @@ resource "aws_s3_bucket_versioning" "versioning" {
 }
 
 resource "aws_dynamodb_table" "lock" {
-  name = var.stack_config.dynamodb_table_name
-  billing_mode = "PROVISIONED"
-  read_capacity = 5
+  name           = var.stack_config.dynamodb_table_name
+  billing_mode   = "PROVISIONED"
+  read_capacity  = 5
   write_capacity = 5
-  hash_key = "LockID"
+  hash_key       = "LockID"
   attribute {
     name = "LockID"
     type = "S"

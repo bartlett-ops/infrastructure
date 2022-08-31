@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: find
-        run: find /__w
+        run: find /__w/infrastructure/infrastructure
       - name: Lint
-        run: terraform fmt -check -recursive /github/workspace
+        run: terraform fmt -check -recursive /__w/infrastructure/infrastructure
 

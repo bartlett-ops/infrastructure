@@ -9,7 +9,7 @@ jobs:
       #  - ${{ github.workspace }}:/repo
     steps:
       - name: find
-        run: find /github/workspace
+        run: find / | grep "*.tf"
       - name: Lint
         run: terraform fmt -check -recursive /repo
 

@@ -8,8 +8,10 @@ jobs:
       #volumes:
       #  - ${{ github.workspace }}:/repo
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: find
         run: find /github
       - name: Lint
-        run: terraform fmt -check -recursive /repo
+        run: terraform fmt -check -recursive /github/workspace
 

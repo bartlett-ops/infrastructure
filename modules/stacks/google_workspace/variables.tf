@@ -6,8 +6,8 @@ variable "stack_config" {
     })
     mx_record = optional(object({
       records = list(string)
-      ttl = number
-    }), {
+      ttl     = number
+      }), {
       records = [
         "1 ASPMX.L.GOOGLE.COM",
         "5 ALT1.ASPMX.L.GOOGLE.COM",
@@ -16,7 +16,7 @@ variable "stack_config" {
         "10 ALT4.ASPMX.L.GOOGLE.COM",
       ]
       ttl = 300
-    }) 
+    })
   })
 }
 

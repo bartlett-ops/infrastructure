@@ -12,7 +12,7 @@ variable "stack_config" {
         "10 ALT3.ASPMX.L.GOOGLE.COM",
         "10 ALT4.ASPMX.L.GOOGLE.COM",
       ])
-      ttl     = optional(number, 300)
+      ttl = optional(number, 300)
     })
   })
 }

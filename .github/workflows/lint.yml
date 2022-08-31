@@ -6,7 +6,7 @@ jobs:
     container:
       image: hashicorp/terraform:1.2.8
       volumes:
-        - ./:/repo
+        - ${{ github.workspace }}:/repo
     steps:
       - name: Lint
         run: terraform fmt -check -recursive /repo

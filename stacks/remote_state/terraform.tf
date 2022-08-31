@@ -1,5 +1,13 @@
 terraform {
-  required_providers = {
+  backend "s3" {
+    bucket = "bartlett-remote-states"
+    dynamodb_table = "terraform-state-lock"
+    encrypt = true
+    key = "infrastructure/remote_state/terraform.tfstate"
+    profile = "bartlett"
+    region = "eu-west-1"
+  }
+  required_providers {
     aws = {
       source = "hashicorp/aws"
       version = "4.28.0"

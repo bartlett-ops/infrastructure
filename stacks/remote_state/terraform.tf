@@ -7,10 +7,8 @@ terraform {
     profile        = "bartlett"
     region         = "eu-west-1"
   }
+  # Provider versions set in modules/stacks/x
   required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "4.28.0"
-    }
+    aws = {}
   }
 }

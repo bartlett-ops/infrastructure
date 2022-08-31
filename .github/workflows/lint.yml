@@ -5,13 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: hashicorp/terraform:1.2.8
-      #volumes:
-      #  - ${{ github.workspace }}:/repo
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: find
-        run: find /__w/infrastructure/infrastructure
       - name: Lint
         run: terraform fmt -check -recursive /__w/infrastructure/infrastructure
+      - name: Check formatting
+        uses: devops-infra/action-format-hcl@v0.3
+        with:
+          check: true
 

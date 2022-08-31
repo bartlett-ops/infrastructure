@@ -9,7 +9,7 @@ jobs:
         - ${{ github.workspace }}:/repo
     steps:
       - name: find
-        run: find .
+        run: find /repo
       - name: Lint
         run: terraform fmt -check -recursive /repo
 

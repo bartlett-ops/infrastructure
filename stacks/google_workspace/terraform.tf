@@ -3,7 +3,7 @@ terraform {
     bucket         = "bartlett-remote-states"
     dynamodb_table = "terraform-state-lock"
     encrypt        = true
-    key            = "infrastructure/${TEMPLATE}/terraform.tfstate"
+    key            = "infrastructure/google_workspace/terraform.tfstate"
     profile        = "bartlett"
     region         = "eu-west-1"
   }

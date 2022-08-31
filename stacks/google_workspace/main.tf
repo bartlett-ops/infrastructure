@@ -1,4 +1,4 @@
 module "stack" {
-  source       = "../../modules/stacks/X"
+  source       = "../../modules/stacks/google_workspace"
   stack_config = local.stack_config
 }

@@ -4,16 +4,19 @@ variable "stack_config" {
       zone_id = string
       name    = string
     })
-    mx_record = object({
-      records = optional(list(string), [
+    mx_record = optional(object({
+      records = list(string)
+      ttl = number
+    }), {
+      records = [
         "1 ASPMX.L.GOOGLE.COM",
         "5 ALT1.ASPMX.L.GOOGLE.COM",
         "5 ALT2.ASPMX.L.GOOGLE.COM",
         "10 ALT3.ASPMX.L.GOOGLE.COM",
         "10 ALT4.ASPMX.L.GOOGLE.COM",
-      ])
-      ttl = optional(number, 300)
-    })
+      ]
+      ttl = 300
+    }) 
   })
 }
 

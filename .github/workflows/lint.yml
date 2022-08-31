@@ -8,6 +8,8 @@ jobs:
       volumes:
         - ${{ github.workspace }}:/repo
     steps:
+      - name: find
+        run: find .
       - name: Lint
         run: terraform fmt -check -recursive /repo
 

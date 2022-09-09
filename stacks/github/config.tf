@@ -10,7 +10,9 @@ locals {
             aws_iam_user_config = {
               policy_document = data.aws_iam_policy_document.github
             }
-            github_pat_config = {}
+            github_pat_config = {
+              token = var.github_token
+            }
           }
           remote_state = {
             aws_iam_user_config = {

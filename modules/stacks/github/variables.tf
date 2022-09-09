@@ -20,7 +20,9 @@ variable "stack_config" {
             json = string
           })
         }))
-        github_pat_config = optional(object({}))
+        github_pat_config = optional(object({
+          token = string
+        }))
       })), {})
     }))
   })

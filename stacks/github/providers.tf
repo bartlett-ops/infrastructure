@@ -1,7 +1,7 @@
-//provider "aws" {
-//  region  = "eu-west-1"
-//  profile = "bartlett"
-//}
+provider "aws" {
+  region  = "eu-west-1"
+  profile = "bartlett"
+}
 provider "github" {
   owner = "bartlettt"
 }

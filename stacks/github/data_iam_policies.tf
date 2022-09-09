@@ -1,8 +1,8 @@
 data "aws_iam_policy_document" "github" {
   statement {
-    sid = "iam"
-    actions = [ "iam:*" ]
-    resources = [ 
+    sid     = "iam"
+    actions = ["iam:*"]
+    resources = [
       "arn:aws:iam::*:user/${local.stack_name}-*",
       "arn:aws:iam::*:policy/${local.stack_name}-*",
     ]

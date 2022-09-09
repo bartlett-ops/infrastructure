@@ -1,13 +1,13 @@
 variable "config" {
   type = object({
-    name = string
+    name           = string
     default_branch = string
-    description = string
-    visibility = string 
-    secrets = optional(map(string), {})
+    description    = string
+    visibility     = string
+    secrets        = optional(map(string), {})
   })
   validation {
-    condition = contains(["public", "private", "internal"], var.config.visibility)
+    condition     = contains(["public", "private", "internal"], var.config.visibility)
     error_message = "Visibility must be set to one of [\"public\", \"private\", \"internal\"]."
   }
 }

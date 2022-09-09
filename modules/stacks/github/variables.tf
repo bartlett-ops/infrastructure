@@ -4,13 +4,13 @@ variable "stack_config" {
     repositories = map(object({
       repo_config = optional(
         object({
-          description = optional(string)
-          visibility = optional(string, "public")
+          description    = optional(string)
+          visibility     = optional(string, "public")
           default_branch = optional(string, "master")
         }),
         {
-          description = null
-          visibility = "public"
+          description    = null
+          visibility     = "public"
           default_branch = "master"
         }
       )

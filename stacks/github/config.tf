@@ -1,7 +1,6 @@
 locals {
   stack_name = basename(abspath(path.root))
   stack_config = {
-    name = local.stack_name
     repositories = {
       digital_cv = {}
       infrastructure = {

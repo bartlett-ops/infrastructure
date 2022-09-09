@@ -1,6 +1,9 @@
+variable "stack_name" {
+  type = string
+}
+
 variable "stack_config" {
   type = object({
-    name = string
     repositories = map(object({
       repo_config = optional(
         object({

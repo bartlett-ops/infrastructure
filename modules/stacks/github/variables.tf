@@ -13,6 +13,10 @@ variable "stack_config" {
           default_branch = "master"
         }
       )
+      terraform_executor_configs = optional(map(object({
+        aws_iam_user = optional(object({}))
+        github_pat = optional(object({}))
+      })), {})
     }))
   })
 }

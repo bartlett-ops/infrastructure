@@ -4,6 +4,7 @@ variable "config" {
     default_branch = string
     description = string
     visibility = string 
+    secrets = optional(map(string), {})
   })
   validation {
     condition = contains(["public", "private", "internal"], var.config.visibility)

@@ -1,8 +1,10 @@
 module "repos" {
   source = "./modules/repo"
   for_each = var.stack_config.repositories 
-  name = each.key 
-  description = each.value.description 
-  visibility = each.value.visibility 
-  default_branch = each.value.default_branch 
+  config = merge(
+    each.value.repo_config,
+    {
+      name = each.key 
+    }
+  )
 }

@@ -1,0 +1,26 @@
+name: Terraform Lint
+on: [push]
+jobs:
+  Plan-Terraform:
+    runs-on: ubuntu-latest
+    container:
+      image: hashicorp/terraform:1.2.8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Generate AWS Config
+        run: |
+          mkdir -p ~/.aws
+          cat <<'EOT' >> ~/.aws/config
+          [bartlett]
+          region = eu-west-1
+          aws_access_key_id = ${{ secrets.STACKS_GITHUB__AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key = ${{ secrets.STACKS_GITHUB__AWS_SECRET_ACCESS_KEY }}
+          EOT
+      - name: Plan Github Stack
+        env:
+          TF_VAR_github_token: ${{ secrets.STACKS_GITHUB__GITHUB_TOKEN }}
+        run: |
+          cd /__w/infrastructure/infrastructure/stacks/github
+          terraform plan -detailed-exitcode
+

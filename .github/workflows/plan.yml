@@ -14,13 +14,15 @@ jobs:
           [bartlett]
           region = eu-west-1
           aws_access_key_id = ${{ secrets.STACKS_GITHUB__AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key = ${{ secrets.STACKS_GITHUB__AWS_SECRET_ACCESS_KEY }}
+          aws_secret_access_key = XXXXXXXXXX
           EOT
+          cat /__w/infrastructure/config
       - name: Plan Github Stack
         env:
           TF_VAR_github_token: ${{ secrets.STACKS_GITHUB__GITHUB_TOKEN }}
           AWS_CONFIG_FILE: /__w/infrastructure/config
         run: |
+          cat /__w/infrastructure/config
           cd /__w/infrastructure/infrastructure/stacks/github
           terraform init -upgrade
           terraform plan -detailed-exitcode

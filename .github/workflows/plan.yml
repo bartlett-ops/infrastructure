@@ -24,7 +24,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.STACKS_GITHUB__AWS_SECRET_ACCESS_KEY }}
       - name: Plan Github Stack
         env:
-          TF_VAR_github_token: ${{ secrets.STACKS_GITHUB__GITHUB_TOKEN }}
+          #TF_VAR_github_token: ${{ secrets.STACKS_GITHUB__GITHUB_TOKEN }}
           TF_VAR_pipeline: "true"
           AWS_CONFIG_FILE: /__w/infrastructure/config
         run: |

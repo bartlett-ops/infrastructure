@@ -27,6 +27,16 @@ data "aws_iam_policy_document" "github" {
       "arn:aws:s3:::bartlett-remote-states/infrastructure/github/terraform.tfstate"
     ]
   }
+  statement {
+    sid = "S3BackendKMS"
+    actions = [
+      "dynamodb:PutItem",
+      "dynamodb:GetItem",
+    ]
+    resources = [
+      "arn:aws:dynamodb:eu-west-1:150539654980:table/terraform-state-lock"
+    ]
+  }
 }
 
 

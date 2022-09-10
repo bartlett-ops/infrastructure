@@ -4,6 +4,6 @@ variable "github_token" {
 }
 
 variable "pipeline" {
-  type = bool
+  type    = bool
   default = false
 }

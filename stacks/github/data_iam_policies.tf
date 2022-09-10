@@ -32,6 +32,7 @@ data "aws_iam_policy_document" "github" {
     actions = [
       "dynamodb:PutItem",
       "dynamodb:GetItem",
+      "dynamodb:DeleteItem",
     ]
     resources = [
       "arn:aws:dynamodb:eu-west-1:150539654980:table/terraform-state-lock"

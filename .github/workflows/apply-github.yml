@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-on: [push]
 jobs:
   Github-Stack:
     runs-on: ubuntu-latest

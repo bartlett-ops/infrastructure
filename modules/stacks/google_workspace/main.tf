@@ -23,3 +23,8 @@ resource "aws_route53_record" "dkim" {
   ttl     = var.stack_config.dkim_record.ttl
 }
 
+resource "googleworkspace_group" "test" {
+  email = "test@bartlett.sh"
+  name = "test"
+  description = "test"
+}

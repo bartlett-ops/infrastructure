@@ -10,5 +10,6 @@ terraform {
   # Provider versions set in modules/stacks/x
   required_providers {
     aws = {}
+    googleworkspace = {}
   }
 }

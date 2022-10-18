@@ -99,8 +99,8 @@ data "aws_iam_policy_document" "google_workspace" {
       "route53:*",
     ]
     resources = [
-      "arn:aws:route53:::Z08555331FK81U1K56PZJ",
-      "arn:aws:route53:::Z08555331FK81U1K56PZJ/*"
+      "arn:aws:route53:::hostedzone/Z08555331FK81U1K56PZJ",
+      "arn:aws:route53:::hostedzone/Z08555331FK81U1K56PZJ/*"
     ]
   }
   statement {

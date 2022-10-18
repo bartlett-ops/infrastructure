@@ -1,5 +1,8 @@
 name: Terraform Plan
-on: [push]
+on: 
+  push:
+    branches-ignore:
+      - master
 jobs:
   RemoteState-Stack:
     runs-on: ubuntu-latest

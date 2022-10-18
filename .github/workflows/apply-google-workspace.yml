@@ -1,7 +1,7 @@
-name: Terraform Plan
+name: Terraform Apply
 on: 
   push:
-    branches-ignore:
+    branches:
       - master
 jobs:
   GoogleWorkspace-Stack:
@@ -17,11 +17,11 @@ jobs:
           aws-region: eu-west-1
           aws-access-key-id: ${{ secrets.STACKS_GOOGLE_WORKSPACE__AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.STACKS_GOOGLE_WORKSPACE__AWS_SECRET_ACCESS_KEY }}
-      - name: Plan Google Workspace Stack
+      - name: Apply Google Workspace Stack
         env:
           TF_VAR_pipeline: "true"
         run: |
           cd /__w/infrastructure/infrastructure/stacks/google_workspace
           terraform init -upgrade
-          terraform plan -detailed-exitcode
+          terraform apply
 

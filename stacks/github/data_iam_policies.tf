@@ -84,15 +84,6 @@ data "aws_iam_policy_document" "remote_state" {
 }
 
 data "aws_iam_policy_document" "google_workspace" {
-  #statement {
-  #  sid = "Route53"
-  #  actions = [
-  #    "route53:*",
-  #  ]
-  #  resources = [
-  #    "arn:aws:s3:::bartlett-remote-states"
-  #  ]
-  #}
   statement {
     sid = "S3BackendBucketObjects"
     actions = [
@@ -101,7 +92,7 @@ data "aws_iam_policy_document" "google_workspace" {
       "s3:DeleteObject",
     ]
     resources = [
-      "arn:aws:s3:::bartlett-remote-states/infrastructure/remote_state/terraform.tfstate"
+      "arn:aws:s3:::bartlett-remote-states/infrastructure/google_workspace/terraform.tfstate"
     ]
   }
   statement {

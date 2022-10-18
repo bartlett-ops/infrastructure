@@ -1,7 +1,8 @@
 provider "aws" {
   region  = "eu-west-1"
-  profile = "bartlett"
+  profile = var.pipeline ? null : "bartlett"
 }
+
 provider "github" {
   owner = "bartlettt"
 }

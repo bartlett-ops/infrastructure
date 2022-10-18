@@ -1,0 +1,27 @@
+name: Terraform Apply
+on: 
+  push:
+    branches:
+      - master
+jobs:
+  GoogleWorkspace-Stack:
+    runs-on: ubuntu-latest
+    container:
+      image: hashicorp/terraform:1.3.0-beta1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: eu-west-1
+          aws-access-key-id: ${{ secrets.STACKS_GOOGLE_WORKSPACE__AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.STACKS_GOOGLE_WORKSPACE__AWS_SECRET_ACCESS_KEY }}
+      - name: Apply Google Workspace Stack
+        env:
+          TF_VAR_pipeline: "true"
+        run: |
+          cd /__w/infrastructure/infrastructure/stacks/google_workspace
+          terraform init -upgrade
+          terraform apply
+

@@ -17,8 +17,6 @@ jobs:
       - name: Plan Remote State Stack
         env:
           TF_VAR_pipeline: "true"
-          # Not sure if needed
-          AWS_CONFIG_FILE: /__w/infrastructure/config
         run: |
           cd /__w/infrastructure/infrastructure/stacks/remote_state
           terraform init -upgrade

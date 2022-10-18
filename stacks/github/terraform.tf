@@ -13,5 +13,8 @@ terraform {
     github = {
       source = "integrations/github"
     }
+    local = {
+      source = "hashicorp/local"
+    }
   }
 }

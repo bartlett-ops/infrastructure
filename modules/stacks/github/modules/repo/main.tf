@@ -15,8 +15,9 @@ resource "github_branch_default" "branch_default" {
 }
 
 resource "github_actions_secret" "secrets" {
-  for_each        = var.config.secrets
+  # Allow potentially sensitive values to be used in a for_each
+  for_each        = nonsensitive(sensitive(var.config.secrets))
   repository      = github_repository.repo.name
   secret_name     = each.key
-  plaintext_value = each.value
+  plaintext_value = var.config.secrets[each.key]
 }

@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "github" {
     ]
   }
   statement {
-    sid = "S3BackendKMS"
+    sid = "S3BackendDynamoDB"
     actions = [
       "dynamodb:PutItem",
       "dynamodb:GetItem",
@@ -52,12 +52,12 @@ data "aws_iam_policy_document" "remote_state" {
     ]
   }
   statement {
-    sid = "KMS"
+    sid = "DynamoDB"
     actions = [
-      "kms:*",
+      "dynamodb:*",
     ]
     resources = [
-      "arn:aws:kms:::terraform-state-lock"
+      "arn:aws:dynamodb:eu-west-1:150539654980:table/terraform-state-lock"
     ]
   }
   statement {
@@ -72,7 +72,7 @@ data "aws_iam_policy_document" "remote_state" {
     ]
   }
   statement {
-    sid = "S3BackendKMS"
+    sid = "S3BackendDynamoDB"
     actions = [
       "dynamodb:PutItem",
       "dynamodb:GetItem",

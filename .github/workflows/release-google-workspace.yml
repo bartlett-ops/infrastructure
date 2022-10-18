@@ -1,10 +1,10 @@
-name: Terraform Apply
+name: Release Google Workspace
 on: 
   push:
     branches:
       - master
 jobs:
-  GoogleWorkspace-Stack:
+  Terraform-Apply:
     runs-on: ubuntu-latest
     container:
       image: hashicorp/terraform:1.3.0-beta1

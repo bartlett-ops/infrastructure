@@ -1,10 +1,10 @@
-name: Terraform Apply
-on: 
+name: Release Github
+on:
   push:
     branches:
       - master
 jobs:
-  RemoteState-Stack:
+  Terraform-Apply:
     runs-on: ubuntu-latest
     container:
       image: hashicorp/terraform:1.3.0-beta1
@@ -15,13 +15,15 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: eu-west-1
-          aws-access-key-id: ${{ secrets.STACKS_REMOTE_STATE__AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.STACKS_REMOTE_STATE__AWS_SECRET_ACCESS_KEY }}
-      - name: Apply Remote State Stack
+          aws-access-key-id: ${{ secrets.STACKS_GITHUB__AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.STACKS_GITHUB__AWS_SECRET_ACCESS_KEY }}
+      - name: Apply Github Stack
         env:
+          TF_VAR_github_token: ${{ secrets.STACKS_GITHUB__GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.STACKS_GITHUB__GITHUB_TOKEN }}
           TF_VAR_pipeline: "true"
         run: |
-          cd /__w/infrastructure/infrastructure/stacks/remote_state
+          cd /__w/infrastructure/infrastructure/stacks/github
           terraform init -upgrade
           terraform apply
 

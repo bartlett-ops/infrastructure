@@ -85,6 +85,25 @@ data "aws_iam_policy_document" "remote_state" {
 
 data "aws_iam_policy_document" "google_workspace" {
   statement {
+    sid = "Route53List"
+    actions = [
+      "route53:ListHostedZones",
+    ]
+    resources = [
+      "*"
+    ]
+  }
+  statement {
+    sid = "Route53Admin"
+    actions = [
+      "route53:*",
+    ]
+    resources = [
+      "arn:aws:route53:::Z08555331FK81U1K56PZJ",
+      "arn:aws:route53:::Z08555331FK81U1K56PZJ/*"
+    ]
+  }
+  statement {
     sid = "S3BackendBucketObjects"
     actions = [
       "s3:GetObject",

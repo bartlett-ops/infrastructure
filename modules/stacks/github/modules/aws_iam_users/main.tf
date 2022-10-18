@@ -10,7 +10,7 @@ resource "aws_iam_access_key" "keys" {
 
 resource "aws_iam_policy" "policies" {
   for_each    = var.aws_iam_user_configs
-  name        = "user_${aws_iam_user.users[each.key].name}"
+  name        = "${aws_iam_user.users[each.key].name}-user-policy"
   description = "${aws_iam_user.users[each.key].name} user policy"
   policy      = each.value.policy_document.json
 }
